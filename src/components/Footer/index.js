@@ -11,23 +11,25 @@ const Footer = () => {
               <p>400 University Drive Suite 200 Coral Gables, FL 33134 USA</p>
             </ul>
           </div>
+
           <div className="item">
             <h4>Links</h4>
             <ul>
               <li>
-                <a href="#">Home</a>
+                <a href="/">Home</a>
               </li>
               <li>
-                <a href="#">Shop</a>
+                <a href="/shop">Shop</a>
               </li>
               <li>
-                <a href="#">About</a>
+                <a href="/about">About</a>
               </li>
               <li>
                 <a href="#">Contact</a>
               </li>
             </ul>
           </div>
+
           <div className="item">
             <h4>Help</h4>
             <ul>

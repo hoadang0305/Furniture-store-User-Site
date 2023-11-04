@@ -15,4 +15,10 @@ export const MAIN_NAVIGATION = [
     title: "",
     Component: React.lazy(() => import("./pages/About")),
   },
+  {
+    key: "about",
+    path: "/shop",
+    title: "",
+    Component: React.lazy(() => import("./pages/Shop")),
+  },
 ];
