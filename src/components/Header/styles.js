@@ -36,6 +36,8 @@ export const HeaderNav = styled.div`
   /* Box-model */
   display: flex;
   align-items: center;
+
+  @media;
 `;
 
 export const HeaderNavItem = styled(Link)`

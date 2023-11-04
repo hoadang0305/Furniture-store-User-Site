@@ -10,6 +10,7 @@ import {
 } from "./styles";
 import Home from "../../pages/Home";
 import About from "../../pages/About";
+import Shop from "../../pages/Shop";
 import {
   HeartOutlined,
   SearchOutlined,
@@ -31,6 +32,9 @@ const Header = () => {
         </HeaderNavItem>
         <HeaderNavItem to="/about" element={<About />}>
           About
+        </HeaderNavItem>
+        <HeaderNavItem to="/shop" element={<Shop />}>
+          Shop
         </HeaderNavItem>
       </HeaderNav>
 
