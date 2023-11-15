@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
 body {
   line-height: 1.5;
   /* font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif; */
@@ -8,7 +9,7 @@ body {
   padding: 0;
   box-sizing: border-box;
 }
-.container {
+.sec-container {
   max-width: 1170px;
   margin: auto;
 }
@@ -19,7 +20,7 @@ body {
 ul {
   list-style: none;
 }
-.wrapper {
+.sec-wrapper {
   /* background-color: #ffffff; */
   background-color: #ffffff;
   padding: 70px;
@@ -54,6 +55,7 @@ ul {
   color: #000000;
 }
 .item:first-child p {
+  font-size: 18px;
   color: #9f9f9f;
 }
 .item:last-child {

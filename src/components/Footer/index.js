@@ -2,8 +2,8 @@ import "./footer.css";
 
 const Footer = () => {
   return (
-    <div className="wrapper">
-      <div className="container">
+    <div className="sec-wrapper">
+      <div className="sec-container">
         <div className="row">
           <div className="item">
             <h4>Funiro.</h4>
@@ -45,21 +45,16 @@ const Footer = () => {
           <div className="item">
             <h4>Newsletter</h4>
             <div className="input-box">
-              <li>
-                <input
-                  type="text"
-                  placeholder="Enter Your Email Address"
-                ></input>
-              </li>
-              <li>
-                <input type="button" value="SUBSCRIBE"></input>
-              </li>
+              <input type="text" placeholder="Enter Your Email Address"></input>
+              <input type="button" value="SUBSCRIBE"></input>
             </div>
           </div>
         </div>
         <hr></hr>
         <div className="bottom">
-          <div className="logo-details"></div>
+          <div className="logo-details">
+            <span class="details">2023 furino. All rights reverved</span>
+          </div>
         </div>
       </div>
     </div>
