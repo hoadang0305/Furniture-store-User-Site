@@ -51,7 +51,7 @@ export const PRODUCTS = [
       "https://images.unsplash.com/photo-1540638349517-3abd5afc5847?auto=format&fit=crop&q=80&w=2787&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     shortDesc: "Outdoor bar table and stool",
     price: "Rp 500.000",
-    sale: "",
+    sale: "New",
     priceSale: "",
   },
   {
@@ -71,7 +71,7 @@ export const PRODUCTS = [
       "https://images.unsplash.com/photo-1580480055273-228ff5388ef8?auto=format&fit=crop&q=80&w=2000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     shortDesc: "Night lamp",
     price: "Rp 1.500.000",
-    sale: "",
+    sale: "New",
     priceSale: "",
   },
   {
@@ -81,7 +81,7 @@ export const PRODUCTS = [
       "https://images.unsplash.com/photo-1556228453-efd6c1ff04f6?auto=format&fit=crop&q=80&w=2940&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     shortDesc: "Small mug",
     price: "Rp 150.000",
-    sale: "",
+    sale: "New",
     priceSale: "",
   },
   {
