@@ -1,24 +1,36 @@
-import React, { useState } from "react";
+import React, { useEffect } from "react";
 import { HeaderTitle, OurProductsButton, OurProductsWrapper } from "./styles";
-import { PRODUCTS } from "./constants";
 import { Col, Row } from "antd";
 import { chunk } from "lodash";
 import ProductItem from "../../components/ProductItem";
+import { useDispatch, useSelector } from "react-redux";
+import { getAllProducts } from "../../features/product/productSlice";
 
 const OurProducts = () => {
+  const dispatch = useDispatch();
+
+  const products = useSelector((state) => state.product.allProducts) || [];
+
+  useEffect(() => {
+    dispatch(getAllProducts(""));
+  }, [dispatch]);
   return (
     <OurProductsWrapper>
       <HeaderTitle>Our Products</HeaderTitle>
       <div style={{ width: "100%" }}>
-        {chunk(PRODUCTS.slice(0, 8), 4).map((row) => (
-          <Row gutter={[16, 16]} justify="center" style={{ marginTop: 32 }}>
-            {row.map((item) => (
-              <Col span={5} key={item.id}>
-                <ProductItem item={item} />
-              </Col>
-            ))}
-          </Row>
-        ))}
+        {products.length !== 0 ? (
+          chunk(products?.slice(0, 8), 4).map((row) => (
+            <Row gutter={[16, 16]} justify="center" style={{ marginTop: 32 }}>
+              {row.map((item) => (
+                <Col span={5} key={item.id}>
+                  <ProductItem item={item} />
+                </Col>
+              ))}
+            </Row>
+          ))
+        ) : (
+          <></>
+        )}
       </div>
       <OurProductsButton to="shop">Show More</OurProductsButton>
     </OurProductsWrapper>

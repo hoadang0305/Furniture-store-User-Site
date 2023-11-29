@@ -79,7 +79,7 @@ export const ProductItemImageLabel = styled.div`
   /* Visual */
   width: 3rem;
   height: 3rem;
-  background: #e97171;
+  background: ${(props) => (props.sale === "New" ? "#2EC1AC" : "#e97171")};
   border-radius: 50%;
 
   /* Typography */

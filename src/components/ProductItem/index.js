@@ -12,25 +12,32 @@ import {
 } from "./styles";
 
 const ProductItem = ({ item, style }) => {
-  const { name, image, price, shortDesc, sale, priceSale } = item;
-
   return (
     <ProductItemWrapper style={style}>
-      <ProductItemImage style={{ backgroundImage: `url(${image})` }}>
-        {sale && sale !== "" && (
-          <ProductItemImageLabel>{sale}</ProductItemImageLabel>
+      <ProductItemImage
+        style={{
+          backgroundImage: `url(http://localhost:3500/api/picture${item.images[0]})`,
+        }}
+      >
+        {item.discount && item.discount !== "" && (
+          <ProductItemImageLabel sale={item.discount}>
+            {item.discount}
+          </ProductItemImageLabel>
         )}
       </ProductItemImage>
 
       <ProductItemInfo>
-        <ProductItemTitle>{name}</ProductItemTitle>
-        <ProductItemShortDesc>{shortDesc}</ProductItemShortDesc>
+        <ProductItemTitle>{item.name}</ProductItemTitle>
+        <ProductItemShortDesc>{item.shortDesc}</ProductItemShortDesc>
         <ProductItemPrice>
           <ProductItemPriceText>
-            {sale && sale !== "" ? priceSale : price}
+            $
+            {item.discount && item.discount !== "New" && item.discount !== ""
+              ? item.price
+              : item.originPrice}
           </ProductItemPriceText>
-          {sale && sale !== "" && (
-            <ProductItemPriceSub>{price}</ProductItemPriceSub>
+          {item.discount && item.discount !== "New" && (
+            <ProductItemPriceSub>${item.originPrice}</ProductItemPriceSub>
           )}
         </ProductItemPrice>
       </ProductItemInfo>

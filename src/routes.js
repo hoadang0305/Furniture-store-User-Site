@@ -21,4 +21,16 @@ export const MAIN_NAVIGATION = [
     title: "",
     Component: React.lazy(() => import("./pages/Shop")),
   },
+  {
+    key: "login",
+    path: "/login",
+    title: "",
+    Component: React.lazy(() => import("./pages/Login")),
+  },
+  {
+    key: "register",
+    path: "/register",
+    title: "",
+    Component: React.lazy(() => import("./pages/Login")),
+  },
 ];

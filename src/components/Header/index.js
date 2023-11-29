@@ -17,8 +17,32 @@ import {
   ShoppingCartOutlined,
   UserOutlined,
 } from "@ant-design/icons";
+import { Link } from "react-router-dom";
+import { getAuthUser } from "../../utils/authStorage";
+import { Dropdown } from "antd";
 
 const Header = () => {
+  const user = getAuthUser();
+  const items = [
+    {
+      label: !user ? (
+        <Link to="login">Login</Link>
+      ) : (
+        <Link to="profile">My Account</Link>
+      ),
+      key: "0",
+    },
+    {
+      label: !user ? (
+        <Link to="register">Register</Link>
+      ) : (
+        <Link to="/" onClick={() => {}}>
+          Log Out
+        </Link>
+      ),
+      key: "1",
+    },
+  ];
   return (
     <CustomLayoutHeader>
       <HeaderLogo to="/">
@@ -39,10 +63,20 @@ const Header = () => {
       </HeaderNav>
 
       <HeaderIcons>
-        <HeaderButtonIcons icon={<UserOutlined />} size="large" />
-        <HeaderButtonIcons icon={<SearchOutlined />} size="large" />
-        <HeaderButtonIcons icon={<HeartOutlined />} size="large" />
-        <HeaderButtonIcons icon={<ShoppingCartOutlined />} size="large" />
+        <Dropdown menu={{ items }} trigger={["click"]}>
+          <Link>
+            <HeaderButtonIcons icon={<UserOutlined />} size="large" />
+          </Link>
+        </Dropdown>
+        <Link>
+          <HeaderButtonIcons icon={<SearchOutlined />} size="large" />
+        </Link>
+        <Link>
+          <HeaderButtonIcons icon={<HeartOutlined />} size="large" />
+        </Link>
+        <Link>
+          <HeaderButtonIcons icon={<ShoppingCartOutlined />} size="large" />
+        </Link>
       </HeaderIcons>
     </CustomLayoutHeader>
   );
