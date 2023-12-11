@@ -1,80 +1,28 @@
 import React, { useState } from "react";
 import { ShopFunctionsWrapper } from "./styles";
-import { Button, Dropdown, Tag } from "antd";
-import {
-  FilterOutlined,
-  AppstoreOutlined,
-  PicCenterOutlined,
-} from "@ant-design/icons";
+import { Checkbox } from "antd";
 
-const items = [
-  {
-    key: "0",
-    label: "Category",
-    children: [
-      {
-        key: "Livingroom",
-        label: "Living Room",
-      },
-      {
-        key: "Bedroom",
-        label: "Bed Room",
-      },
-      {
-        key: "Diningroom",
-        label: "Dining Room",
-      },
-    ],
-  },
-  {
-    label: <div>Price</div>,
-    key: "1",
-  },
+const options = [
+  { label: "Living Room", value: "Livingroom" },
+  { label: "Dining Room", value: "Diningroom" },
+  { label: "Bed Room", value: "Bedroom" },
 ];
 
-const ShopFunction = () => {
-  const [filter, setFilter] = useState([]);
-
-  const log = (e) => {
-    console.log(e);
-  };
-
-  const onClick = ({ key }) => {
-    const duplicate = filter.find((element) => element === key);
-    if (duplicate === undefined) {
-      setFilter(filter.push(key));
-    }
+const ShopFunction = ({ setFilter }) => {
+  const onChange = (checkedValues) => {
+    console.log("checked = ", checkedValues);
+    setFilter(checkedValues);
   };
 
   return (
     <ShopFunctionsWrapper>
-      <Dropdown
-        menu={{
-          items,
-          onClick,
-        }}
-        trigger={["click"]}
-      >
-        <Button>
-          <FilterOutlined />
-          Filter
-        </Button>
-      </Dropdown>
-      <Button>
-        <AppstoreOutlined />
-      </Button>
-      <Button>
-        <PicCenterOutlined />
-      </Button>
-
       <div>
-        {console.log(filter)}
-        {filter.length !== null &&
-          filter.map((item) => (
-            <Tag closeIcon onClose={log}>
-              {item}
-            </Tag>
-          ))}
+        Filter:{" "}
+        <Checkbox.Group
+          options={options}
+          defaultValue={["Apple"]}
+          onChange={onChange}
+        />
       </div>
     </ShopFunctionsWrapper>
   );

@@ -7,10 +7,8 @@ export const ShopFunctionsWrapper = styled.div`
   display: flex;
   align-items: center;
 
-  & > button {
-    background: transparent;
-    border: none;
-    box-shadow: none;
+  & > div {
+    margin-left: 1rem;
   }
 `;
 

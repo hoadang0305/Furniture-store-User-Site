@@ -39,7 +39,7 @@ const logout = async (refreshToken) => {
 const update = async (updatedUserData) => {
   const user = getAuthUser();
   const response = await axios.put(
-    "http://localhost:3500/api/user/edit-user",
+    "http://localhost:3500/api/user/updateProfile",
     updatedUserData,
     {
       headers: {
@@ -75,6 +75,18 @@ const resetPassword = async (password) => {
   }
 };
 
+const userCart = async () => {
+  const user = getAuthUser();
+  const response = await axios.get("http://localhost:3500/api/user/", {
+    headers: {
+      Authorization: "Bearer " + user.token,
+    },
+  });
+  if (response.data) {
+    return response.data;
+  }
+};
+
 export const authService = {
   register,
   login,
@@ -82,4 +94,5 @@ export const authService = {
   update,
   forgotPassword,
   resetPassword,
+  userCart,
 };

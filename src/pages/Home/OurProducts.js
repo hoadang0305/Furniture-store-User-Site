@@ -5,6 +5,7 @@ import { chunk } from "lodash";
 import ProductItem from "../../components/ProductItem";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllProducts } from "../../features/product/productSlice";
+import { Link } from "react-router-dom";
 
 const OurProducts = () => {
   const dispatch = useDispatch();
@@ -23,7 +24,9 @@ const OurProducts = () => {
             <Row gutter={[16, 16]} justify="center" style={{ marginTop: 32 }}>
               {row.map((item) => (
                 <Col span={5} key={item.id}>
-                  <ProductItem item={item} />
+                  <Link to={`/shop/${item.id}`}>
+                    <ProductItem item={item} />
+                  </Link>
                 </Col>
               ))}
             </Row>

@@ -13,7 +13,15 @@ const getFuncProducts = async (url) => {
     return response.data;
   }
 };
+
+const getSingleProduct = async (id) => {
+  const response = await axios.get(`http://localhost:3500/api/product/${id}`);
+  if (response.data) {
+    return response.data;
+  }
+};
 export const productService = {
   getProducts,
   getFuncProducts,
+  getSingleProduct,
 };
