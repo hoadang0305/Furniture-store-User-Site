@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
   CustomLayoutHeader,
   HeaderButtonIcons,
@@ -20,15 +20,23 @@ import {
 import { Link } from "react-router-dom";
 import { getAuthUser } from "../../utils/authStorage";
 import { Dropdown } from "antd";
+import { useDispatch } from "react-redux";
+import { logoutUser } from "../../features/user/userSlice";
 
 const Header = () => {
   const user = getAuthUser();
+  const dispatch = useDispatch();
+
+  const handleLogout = (refreshToken) => {
+    dispatch(logoutUser(refreshToken));
+  };
+
   const items = [
     {
       label: !user ? (
         <Link to="login">Login</Link>
       ) : (
-        <Link to="profile">My Account</Link>
+        <Link to="/profile">My Account</Link>
       ),
       key: "0",
     },
@@ -36,7 +44,7 @@ const Header = () => {
       label: !user ? (
         <Link to="register">Register</Link>
       ) : (
-        <Link to="/" onClick={() => {}}>
+        <Link to="/" onClick={() => handleLogout()}>
           Log Out
         </Link>
       ),
@@ -74,7 +82,7 @@ const Header = () => {
         <Link>
           <HeaderButtonIcons icon={<HeartOutlined />} size="large" />
         </Link>
-        <Link>
+        <Link to="cart">
           <HeaderButtonIcons icon={<ShoppingCartOutlined />} size="large" />
         </Link>
       </HeaderIcons>

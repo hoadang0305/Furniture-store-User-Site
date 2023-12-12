@@ -10,21 +10,30 @@ import {
 import { chunk } from "lodash";
 import ProductItem from "../../components/ProductItem";
 import ShopFunction from "./ShopFunction";
+import { Link } from "react-router-dom";
 
 const Shop = () => {
   const dispatch = useDispatch();
   const products = useSelector((state) => state.product.allProducts) || [];
+  const funcProducts = useSelector((state) => state.product.funcProducts) || [];
   const functionProducts =
     useSelector((state) => state.product.funcProducts) || [];
   const [current, setCurrent] = useState(1);
+  const [filter, setFilter] = useState([]);
+
   const onChange = (page) => {
     setCurrent(page);
   };
 
   useEffect(() => {
-    dispatch(getAllProducts());
-    dispatch(getFunctionProducts(`?page=${current}&limit=12`));
-  }, [dispatch, current]);
+    if (filter.length !== 0) {
+      const queryString = filter.map((room) => `&type=${room}`).join("");
+      dispatch(getFunctionProducts(`?page=${current}&limit=12&${queryString}`));
+    } else {
+      dispatch(getAllProducts());
+      dispatch(getFunctionProducts(`?page=${current}&limit=12`));
+    }
+  }, [dispatch, current, filter]);
 
   return (
     <div>
@@ -32,7 +41,7 @@ const Shop = () => {
         <div style={{ background: "#fff" }}>
           <BreadcrumbCustom />
 
-          <ShopFunction />
+          <ShopFunction setFilter={setFilter} />
 
           <div style={{ width: "100%", margin: "3rem 0" }}>
             {functionProducts.length !== 0 ? (
@@ -44,7 +53,9 @@ const Shop = () => {
                 >
                   {row.map((item) => (
                     <Col span={5} key={item.id}>
-                      <ProductItem item={item} />
+                      <Link to={`${item.id}`}>
+                        <ProductItem item={item} />
+                      </Link>
                     </Col>
                   ))}
                 </Row>
@@ -56,7 +67,7 @@ const Shop = () => {
 
           <ShopFunctionPagination
             current={current}
-            total={products.length}
+            total={filter.length === 0 ? products.length : funcProducts.length}
             defaultPageSize={12}
             onChange={onChange}
           />

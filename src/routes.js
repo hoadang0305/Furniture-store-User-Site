@@ -32,5 +32,26 @@ export const MAIN_NAVIGATION = [
     path: "/register",
     title: "",
     Component: React.lazy(() => import("./pages/Register")),
+<<<<<<< HEAD
+=======
+  },
+  {
+    key: "profile",
+    path: `/profile`,
+    title: "",
+    Component: React.lazy(() => import("./pages/Profile")),
+  },
+  {
+    key: "product",
+    path: `/shop/:id`,
+    title: "",
+    Component: React.lazy(() => import("./pages/ProductDetail")),
+  },
+  {
+    key: "cart",
+    path: `/cart`,
+    title: "",
+    Component: React.lazy(() => import("./pages/Cart")),
+>>>>>>> d67382bce3c2f947aaab3af011f225d1721be894
   },
 ];

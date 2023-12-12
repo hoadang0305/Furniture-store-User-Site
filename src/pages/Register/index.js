@@ -1,99 +1,109 @@
 import React from "react";
-import "./styles.css";
+import BreadcrumbCustom from "../../components/Breadcrumb";
+import { useFormik } from "formik";
+import { Form, Input } from "antd";
+import * as yup from "yup";
+import { useDispatch } from "react-redux";
+import { registerUser } from "../../features/user/userSlice";
+import {
+  FormButton,
+  FormError,
+  FormInputWrapper,
+  FormTitle,
+  FormWrapper,
+} from "../Login/styles";
+
+const registerSchema = yup.object({
+  userName: yup.string().required("Username is required!"),
+  email: yup
+    .string()
+    .email("Email should be valid!")
+    .required("Email address is required!"),
+  phoneNumber: yup.string().required("Mobile number is required!"),
+  password: yup.string().required("Password is required"),
+});
 
 const Register = () => {
+  const dispatch = useDispatch();
+
+  const formik = useFormik({
+    initialValues: {
+      userName: "",
+      email: "",
+      phoneNumber: "",
+      password: "",
+    },
+    validationSchema: registerSchema,
+    onSubmit: (values) => {
+      console.log("Hello");
+      dispatch(registerUser(values));
+    },
+  });
+
   return (
-    <>
-      <div className="wrapper">
-        <form action="action_page.php">
-          <div className="container">
-            <h1 style={{ color: `rgb(178, 58, 98)` }}>Sign Up</h1>
-            <hr />
+    <div>
+      <BreadcrumbCustom />
 
-            <div className="form-item-container">
-              <div className="item-container">
-                <label for="name" style={{ color: `rgb(178, 58, 98)` }}>
-                  <b>Full name</b>
-                </label>
-                <span id="reName">required</span>
-                <input
-                  type="text"
-                  placeholder="Enter Full name"
-                  name="name"
-                  id="name"
-                  required
-                />
-              </div>
+      <FormWrapper>
+        <div>
+          <FormTitle>Create Account</FormTitle>
 
-              <div className="item-container">
-                <label for="email" style={{ color: `rgb(178, 58, 98)` }}>
-                  <b>Email</b>
-                </label>
-                <span id="reEmail">required</span>
-                <input
-                  type="email"
-                  placeholder="Enter Email"
-                  name="email"
-                  id="email"
-                  required
-                />
-              </div>
+          <FormInputWrapper onFinish={formik.handleSubmit}>
+            <Form.Item label="Username" name="userName">
+              <Input
+                values={formik.values.userName}
+                onChange={formik.handleChange("userName")}
+                onPressEnter={formik.handleBlur("userName")}
+              />
+              <FormError>
+                {formik.touched.userName && formik.errors.userName}
+              </FormError>
+            </Form.Item>
 
-              <div className="item-container">
-                <label for="phone" style={{ color: "rgb(178, 58, 98)" }}>
-                  <b>Phone number</b>
-                </label>
-                <span id="rePhone">required</span>
-                <input
-                  type="text"
-                  placeholder="Enter Phone number"
-                  name="phone"
-                  id="phone"
-                  required
-                />
-              </div>
+            <Form.Item label="Mobile number" name="phoneNumber">
+              <Input
+                values={formik.values.phoneNumber}
+                onChange={formik.handleChange("phoneNumber")}
+                onPressEnter={formik.handleBlur("phoneNumber")}
+                type="tel"
+              />
+              <FormError>
+                {formik.touched.phoneNumber && formik.errors.phoneNumber}
+              </FormError>
+            </Form.Item>
 
-              <div className="item-container">
-                <label for="psw" style={{ color: "rgb(178, 58, 98)" }}>
-                  <b>Password</b>
-                </label>
-                <span id="rePass">required</span>
-                <input
-                  type="password"
-                  placeholder="Enter Password"
-                  name="psw"
-                  id="psw"
-                  required
-                />
-                <img src="eye-close.png" id="eyeicon" alt="" />
-                <script src="script2.js"></script>
-              </div>
+            <Form.Item label="Email" name="email">
+              <Input
+                values={formik.values.email}
+                onChange={formik.handleChange("email")}
+                onPressEnter={formik.handleBlur("email")}
+                type="email"
+              />
+              <FormError>
+                {formik.touched.email && formik.errors.email}
+              </FormError>
+            </Form.Item>
 
-              <div className="button-group-container">
-                <button id="yes" className="btn signup">
-                  Sign up
-                </button>
-                <button id="no" className="btn cancel">
-                  Cancel
-                </button>
-              </div>
+            <Form.Item label="Password" name="password">
+              <Input.Password
+                values={formik.values.password}
+                onChange={formik.handleChange("password")}
+                onPressEnter={formik.handleBlur("password")}
+              />
+              <FormError>
+                {formik.touched.password && formik.errors.password}
+              </FormError>
+            </Form.Item>
 
-              <div className="signup-container">
-                <h5 style={{ color: "rgb(178, 58, 98)" }}>
-                  Already have an account?
-                </h5>
-                <h5>
-                  <a href="signin.html">Sign in</a>
-                </h5>
-              </div>
-
-              <script src="script1.js"></script>
-            </div>
-            <hr />
-          </div>
-        </form>
-      </div>
-    </>
+            <Form.Item>
+              <FormButton type="primary" htmlType="submit">
+                Created
+              </FormButton>
+            </Form.Item>
+          </FormInputWrapper>
+        </div>
+      </FormWrapper>
+    </div>
   );
 };
 

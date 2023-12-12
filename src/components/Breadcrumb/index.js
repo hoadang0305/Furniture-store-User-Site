@@ -10,6 +10,7 @@ const title = {
   "login-recover": "Account",
   "reset-pass": "Account",
   shop: "Our Store",
+  cart: "Cart",
 };
 
 const BreadcrumbCustom = () => {

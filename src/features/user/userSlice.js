@@ -39,11 +39,7 @@ export const loginUser = createAsyncThunk(
 export const logoutUser = createAsyncThunk(
   "auth/logout",
   async (refreshToken, thunkAPI) => {
-    try {
-      return await authService.logout(refreshToken);
-    } catch (error) {
-      return thunkAPI.rejectWithValue(error);
-    }
+    return;
   }
 );
 
@@ -83,7 +79,20 @@ export const resetPass = createAsyncThunk(
   }
 );
 
+// API: User cart
+export const getUserCart = createAsyncThunk(
+  "auth/user-cart",
+  async (_, thunkAPI) => {
+    try {
+      return await authService.userCart();
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error);
+    }
+  }
+);
+
 const initialState = {
+  userCart: null,
   message: "",
   isLoading: false,
 };
@@ -103,7 +112,7 @@ export const authSlice = createSlice({
         state.message = "";
         state.createdUser = action.payload;
         if (state.createdUser !== null && state.message === "") {
-          window.location.assign("/");
+          window.location.assign("/login");
         }
       })
       .addCase(registerUser.rejected, (state, action) => {
@@ -157,6 +166,7 @@ export const authSlice = createSlice({
       })
       .addCase(updateUser.fulfilled, (state, action) => {
         const user = getAuthUser();
+        console.log(action.payload);
         state.isLoading = false;
         state.message = "";
         state.user = { ...user, ...action.payload };
@@ -196,6 +206,20 @@ export const authSlice = createSlice({
         state.isLoading = false;
         state.message = action.error;
         notification.error(action.error);
+      })
+
+      // API: User cart
+      .addCase(getUserCart.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(getUserCart.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.message = "";
+        state.userCart = action.payload;
+      })
+      .addCase(getUserCart.rejected, (state, action) => {
+        state.isLoading = false;
+        state.message = action.error;
       });
   },
 });

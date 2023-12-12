@@ -7,6 +7,7 @@ export const ProductItemWrapper = styled.div`
   display: flex;
   flex-direction: column;
   border-radius: 1rem;
+  height: 100%;
 `;
 
 export const ProductItemImage = styled.div`
@@ -27,6 +28,15 @@ export const ProductItemTitle = styled.div`
   font-family: Poppins;
   font-size: 1.5rem;
   font-weight: 600;
+
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 100%;
+  max-width: 100%;
+  margin-bottom: auto;
 `;
 
 export const ProductItemShortDesc = styled.div`
@@ -65,6 +75,9 @@ export const ProductItemPriceSub = styled.div`
 export const ProductItemInfo = styled.div`
   /* Visual */
   margin: 1rem 1.5rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  height: 8rem;
 `;
 
 export const ProductItemImageLabel = styled.div`
