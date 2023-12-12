@@ -31,6 +31,6 @@ export const MAIN_NAVIGATION = [
     key: "register",
     path: "/register",
     title: "",
-    Component: React.lazy(() => import("./pages/Login")),
+    Component: React.lazy(() => import("./pages/Register")),
   },
 ];
