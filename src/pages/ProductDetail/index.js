@@ -76,13 +76,9 @@ const ProductDetail = () => {
                   <Rate disabled defaultValue={product.rating} />
                 </div>
                 <div className="product-desc">
-                  <div>{product.fullDesc.data.brief}</div>
-                  <ul className="product-attr">
-                    <li>{product.fullDesc.data.atrb1}</li>
-                    <li>{product.fullDesc.data.atrb2}</li>
-                    <li>{product.fullDesc.data.atrb3}</li>
-                    <li>{product.fullDesc.data.atrb4}</li>
-                  </ul>
+                  <div style={{ whiteSpace: "pre-wrap" }}>
+                    {product.fullDesc}
+                  </div>
                 </div>
                 <div>
                   <ProductDetailInputNumber
