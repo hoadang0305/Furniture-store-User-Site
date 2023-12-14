@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import BreadcrumbCustom from "../../components/Breadcrumb";
-import { ShopFunctionPagination } from "./styles";
+import { ShopCustomRow, ShopFunctionPagination } from "./styles";
 import { Row, Col } from "antd";
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -43,16 +43,12 @@ const Shop = () => {
 
           <ShopFunction setFilter={setFilter} />
 
-          <div style={{ width: "100%", margin: "3rem 0" }}>
+          <ShopCustomRow>
             {functionProducts.length !== 0 ? (
               chunk(functionProducts, 4).map((row) => (
-                <Row
-                  gutter={[16, 16]}
-                  justify="center"
-                  style={{ marginTop: 32 }}
-                >
+                <Row gutter={[16, 16]} style={{ marginTop: 32 }}>
                   {row.map((item) => (
-                    <Col span={5} key={item.id}>
+                    <Col span={6} key={item.id} flex={"auto"}>
                       <Link to={`${item.id}`}>
                         <ProductItem item={item} />
                       </Link>
@@ -63,7 +59,7 @@ const Shop = () => {
             ) : (
               <></>
             )}
-          </div>
+          </ShopCustomRow>
 
           <ShopFunctionPagination
             current={current}
