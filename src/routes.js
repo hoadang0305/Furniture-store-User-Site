@@ -32,8 +32,6 @@ export const MAIN_NAVIGATION = [
     path: "/register",
     title: "",
     Component: React.lazy(() => import("./pages/Register")),
-<<<<<<< HEAD
-=======
   },
   {
     key: "profile",
@@ -52,6 +50,5 @@ export const MAIN_NAVIGATION = [
     path: `/cart`,
     title: "",
     Component: React.lazy(() => import("./pages/Cart")),
->>>>>>> d67382bce3c2f947aaab3af011f225d1721be894
   },
 ];

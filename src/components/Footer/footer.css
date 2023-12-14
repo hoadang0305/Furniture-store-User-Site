@@ -10,8 +10,8 @@ body {
   box-sizing: border-box;
 }
 
-.container {
-  max-width: 1170px;
+.sec-container {
+  /* max-width: 1170px; */
   margin: auto;
 }
 
@@ -24,10 +24,9 @@ ul {
   list-style: none;
 }
 
-.wrapper {
-  /* background-color: #ffffff; */
-  background-color: #ffffff;
-  padding: 70px;
+.sec-wrapper {
+  background-color: #f5f5f5;
+  padding: 35px;
 }
 
 .bottom {
@@ -129,7 +128,8 @@ ul {
 }
 
 .item .input-box input[type="text"] {
-  border: 1px solid #ffffff;
+  border: 1px solid #f5f5f5;
+  background-color: #f5f5f5;
   color: #24262b;
   font-size: 14;
   font-weight: 400;
@@ -138,7 +138,7 @@ ul {
 
 .item .input-box input[type="button"] {
   width: fit-content;
-  background-color: #ffffff;
+  background-color: #f5f5f5;
   border: none;
   color: #24262b;
   opacity: 0.8;
