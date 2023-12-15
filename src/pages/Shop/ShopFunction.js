@@ -5,7 +5,7 @@ import { Checkbox } from "antd";
 const options = [
   { label: "Living Room", value: "Livingroom" },
   { label: "Dining Room", value: "Diningroom" },
-  { label: "Bed Room", value: "Bedroom" },
+  { label: "Bedroom", value: "Bedroom" },
 ];
 
 const ShopFunction = ({ setFilter }) => {
