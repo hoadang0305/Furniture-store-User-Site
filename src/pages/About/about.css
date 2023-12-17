@@ -60,6 +60,7 @@
 
 .about {
   margin: 20px 0;
+  height: 25%;
   font-weight: lighter;
   color: #4e4e4e;
 }
@@ -83,8 +84,17 @@
   color: #444;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 500px) {
   .teams {
     max-width: 100%;
+  }
+  .about {
+    height: 20%;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .about {
+    height: 40%;
   }
 }

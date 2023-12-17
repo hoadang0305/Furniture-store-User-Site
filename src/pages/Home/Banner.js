@@ -7,6 +7,7 @@ import {
   BannerMaskTitle,
   BannerWrapper,
 } from "./styles";
+import { Link } from "react-router-dom";
 
 const Banner = () => {
   return (
@@ -21,7 +22,9 @@ const Banner = () => {
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit
           tellus, luctus nec ullamcorper mattis.
         </BannerMaskContent>
-        <BannerMaskButton>Buy Now</BannerMaskButton>
+        <Link to={"/shop"}>
+          <BannerMaskButton>Buy Now</BannerMaskButton>
+        </Link>
       </BannerMask>
     </BannerWrapper>
   );

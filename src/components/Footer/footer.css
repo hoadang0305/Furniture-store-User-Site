@@ -141,7 +141,6 @@ ul {
   background-color: #f5f5f5;
   border: none;
   color: #24262b;
-  opacity: 0.8;
   cursor: pointer;
   transition: all 0.4s ease;
   font-weight: 600;
@@ -152,6 +151,8 @@ ul {
 }
 
 .input-box input[type="button"]:hover {
+  color: cornflowerblue;
+  border-bottom: 1px solid cornflowerblue;
   opacity: 1.5;
 }
 

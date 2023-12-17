@@ -1,5 +1,11 @@
 import "./about.css";
-
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faFacebook,
+  faInstagram,
+  faTwitter,
+  faGithub,
+} from "@fortawesome/free-brands-svg-icons";
 const About = () => {
   return (
     <div class="about-container">
@@ -12,22 +18,24 @@ const About = () => {
           <div class="name">Thuan Phat</div>
           <div class="design">Database Administrator</div>
           <div class="about">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum
-            labore quam reprehenderit vitae aliquam dicta!
+            Ensuring data integrity by managing database design, security, and
+            performance. Thuan Phat troubleshoots issues, implements backups,
+            and optimizes structures for efficient data management, contributing
+            to Furniro's stability.
           </div>
 
           <div class="social-links">
             <a href="#">
-              <i class="fa fa-facebook"></i>
+              <FontAwesomeIcon icon={faFacebook} color="#444" />
             </a>
             <a href="#">
-              <i class="fa fa-instagram"></i>
+              <FontAwesomeIcon icon={faInstagram} color="#444" />
             </a>
             <a href="#">
-              <i class="fa fa-twitter"></i>
+              <FontAwesomeIcon icon={faTwitter} color="#444" />
             </a>
             <a href="#">
-              <i class="fa fa-github"></i>
+              <FontAwesomeIcon icon={faGithub} color="#444" />
             </a>
           </div>
         </div>
@@ -38,22 +46,25 @@ const About = () => {
           <div class="design">Project Manager</div>
 
           <div class="about">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum
-            labore quam reprehenderit vitae aliquam dicta!
+            Man Nhi is the leader of Furniro who guides this team through
+            planning, execution, and successful completion of Furniro. Setting
+            goals, managing resources, and ensuring alignment with the Furniro's
+            vision, fostering collaboration and motivation for innovation and
+            success.
           </div>
 
           <div class="social-links">
             <a href="#">
-              <i class="fa fa-facebook"></i>
+              <FontAwesomeIcon icon={faFacebook} color="#444" />
             </a>
             <a href="#">
-              <i class="fa fa-instagram"></i>
+              <FontAwesomeIcon icon={faInstagram} color="#444" />
             </a>
             <a href="#">
-              <i class="fa fa-twitter"></i>
+              <FontAwesomeIcon icon={faTwitter} color="#444" />
             </a>
             <a href="#">
-              <i class="fa fa-github"></i>
+              <FontAwesomeIcon icon={faGithub} color="#444" />
             </a>
           </div>
         </div>
@@ -63,22 +74,25 @@ const About = () => {
           <div class="name">Nhat Hoa</div>
           <div class="design">Developer</div>
           <div class="about">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum
-            labore quam reprehenderit vitae aliquam dicta!
+            Nhat Hoa takes the main responsibility of creating and implementing
+            software solutions, writing, testing, and debugging code
+            collaboratively. He ensures seamless integration, adheres to coding
+            standards, and contributes to the Furniro's success by delivering
+            high-quality solutions.
           </div>
 
           <div class="social-links">
             <a href="#">
-              <i class="fa fa-facebook"></i>
+              <FontAwesomeIcon icon={faFacebook} color="#444" />
             </a>
             <a href="#">
-              <i class="fa fa-instagram"></i>
+              <FontAwesomeIcon icon={faInstagram} color="#444" />
             </a>
             <a href="#">
-              <i class="fa fa-twitter"></i>
+              <FontAwesomeIcon icon={faTwitter} color="#444" />
             </a>
             <a href="#">
-              <i class="fa fa-github"></i>
+              <FontAwesomeIcon icon={faGithub} color="#444" />
             </a>
           </div>
         </div>
@@ -88,22 +102,24 @@ const About = () => {
           <div class="name">Trung Kien</div>
           <div class="design">Tester, Designer</div>
           <div class="about">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum
-            labore quam reprehenderit vitae aliquam dicta!
+            The team's designer and tester. Trung Kien is a versatile
+            professional adept at creating visually appealing designs and
+            ensuring software quality. He contributes to delivering a seamless
+            and high-quality end product for Furniro.
           </div>
 
           <div class="social-links">
             <a href="#">
-              <i class="fa fa-facebook"></i>
+              <FontAwesomeIcon icon={faFacebook} color="#444" />
             </a>
             <a href="#">
-              <i class="fa fa-instagram"></i>
+              <FontAwesomeIcon icon={faInstagram} color="#444" />
             </a>
             <a href="#">
-              <i class="fa fa-twitter"></i>
+              <FontAwesomeIcon icon={faTwitter} color="#444" />
             </a>
             <a href="#">
-              <i class="fa fa-github"></i>
+              <FontAwesomeIcon icon={faGithub} color="#444" />
             </a>
           </div>
         </div>
@@ -113,22 +129,24 @@ const About = () => {
           <div class="name">Dan Sam</div>
           <div class="design">Business Analyst</div>
           <div class="about">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum
-            labore quam reprehenderit vitae aliquam dicta!
+            A bridge between what our team needs and what Furniro delivers. Dan
+            Sam translates requirements, analyzes information, and ensures
+            smooth communication within the team. She plays a key role in making
+            sure our project meets its goals effectively.
           </div>
 
           <div class="social-links">
             <a href="#">
-              <i class="fa fa-facebook"></i>
+              <FontAwesomeIcon icon={faFacebook} color="#444" />
             </a>
             <a href="#">
-              <i class="fa fa-instagram"></i>
+              <FontAwesomeIcon icon={faInstagram} color="#444" />
             </a>
             <a href="#">
-              <i class="fa fa-twitter"></i>
+              <FontAwesomeIcon icon={faTwitter} color="#444" />
             </a>
             <a href="#">
-              <i class="fa fa-github"></i>
+              <FontAwesomeIcon icon={faGithub} color="#444" />
             </a>
           </div>
         </div>
