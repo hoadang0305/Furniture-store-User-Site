@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import BreadcrumbCustom from "../../components/Breadcrumb";
 import { ShopCustomRow, ShopFunctionPagination } from "./styles";
-import { Row, Col } from "antd";
+import { Row, Col, Flex } from "antd";
 import { useDispatch, useSelector } from "react-redux";
 import {
   getAllProducts,
@@ -11,7 +11,9 @@ import { chunk } from "lodash";
 import ProductItem from "../../components/ProductItem";
 import ShopFunction from "./ShopFunction";
 import { Link } from "react-router-dom";
+import { Typography } from "antd";
 
+const { Title } = Typography;
 const Shop = () => {
   const dispatch = useDispatch();
   const products = useSelector((state) => state.product.allProducts) || [];
@@ -57,7 +59,9 @@ const Shop = () => {
                 </Row>
               ))
             ) : (
-              <></>
+              <div style={{ textAlign: "center", marginTop: 50 }}>
+                <Title level={2}>No result found!</Title>
+              </div>
             )}
           </ShopCustomRow>
 
