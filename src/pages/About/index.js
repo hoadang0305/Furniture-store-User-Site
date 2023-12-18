@@ -21,7 +21,7 @@ const About = () => {
             Ensuring data integrity by managing database design, security, and
             performance. Thuan Phat troubleshoots issues, implements backups,
             and optimizes structures for efficient data management, contributing
-            to Furniro's stability.
+            to the stability of Future Furniture.
           </div>
 
           <div class="social-links">
@@ -46,11 +46,11 @@ const About = () => {
           <div class="design">Project Manager</div>
 
           <div class="about">
-            Man Nhi is the leader of Furniro who guides this team through
-            planning, execution, and successful completion of Furniro. Setting
-            goals, managing resources, and ensuring alignment with the Furniro's
-            vision, fostering collaboration and motivation for innovation and
-            success.
+            Man Nhi is the leader of Future Furniture who guides this team
+            through planning, execution, and successful completion of this
+            website. Setting goals, managing resources, and ensuring alignment
+            with Future Furniture's vision, fostering collaboration and
+            motivation for innovation and success.
           </div>
 
           <div class="social-links">
@@ -77,8 +77,8 @@ const About = () => {
             Nhat Hoa takes the main responsibility of creating and implementing
             software solutions, writing, testing, and debugging code
             collaboratively. He ensures seamless integration, adheres to coding
-            standards, and contributes to the Furniro's success by delivering
-            high-quality solutions.
+            standards, and contributes to the success of Future Furniture by
+            delivering high-quality solutions.
           </div>
 
           <div class="social-links">
@@ -105,7 +105,7 @@ const About = () => {
             The team's designer and tester. Trung Kien is a versatile
             professional adept at creating visually appealing designs and
             ensuring software quality. He contributes to delivering a seamless
-            and high-quality end product for Furniro.
+            and high-quality end product for Future Furniture.
           </div>
 
           <div class="social-links">
@@ -129,10 +129,10 @@ const About = () => {
           <div class="name">Dan Sam</div>
           <div class="design">Business Analyst</div>
           <div class="about">
-            A bridge between what our team needs and what Furniro delivers. Dan
-            Sam translates requirements, analyzes information, and ensures
-            smooth communication within the team. She plays a key role in making
-            sure our project meets its goals effectively.
+            A bridge between what our team needs and what Future Furniture
+            delivers. Dan Sam translates requirements, analyzes information, and
+            ensures smooth communication within the team. She plays a key role
+            in making sure our project meets its goals effectively.
           </div>
 
           <div class="social-links">
