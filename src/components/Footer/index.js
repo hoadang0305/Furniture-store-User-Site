@@ -5,7 +5,7 @@ const Footer = () => {
       <div className="sec-container">
         <div className="row">
           <div className="item">
-            <h4>Funiro.</h4>
+            <h4>Furniro.</h4>
             <ul>
               <p>400 University Drive Suite 200 Coral Gables, FL 33134 USA</p>
             </ul>

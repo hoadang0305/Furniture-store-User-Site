@@ -12,7 +12,7 @@ const BrowseRange = () => {
   return (
     <BrowseRangeWrapper>
       <HeaderTitle>Browse The Range</HeaderTitle>
-      <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>
+      <div>Discover diversity: browse our range for tailored quality.</div>
       <BrowseRangeRow justify="space-around">
         {BROWSERANGEDATA.map((item) => (
           <BrowseRangeCol>
