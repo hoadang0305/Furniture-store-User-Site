@@ -13,13 +13,18 @@ import {
   FormWrapper,
 } from "../Login/styles";
 
+const phoneRegExp = /^[0-9]*$/;
+
 const registerSchema = yup.object({
   userName: yup.string().required("Username is required!"),
   email: yup
     .string()
     .email("Email should be valid!")
     .required("Email address is required!"),
-  phoneNumber: yup.string().required("Mobile number is required!"),
+  phoneNumber: yup
+    .string()
+    .required("Mobile number is required!")
+    .matches(phoneRegExp, "Mobile number is not valid"),
   password: yup.string().required("Password is required"),
 });
 
@@ -35,7 +40,6 @@ const Register = () => {
     },
     validationSchema: registerSchema,
     onSubmit: (values) => {
-      console.log("Hello");
       dispatch(registerUser(values));
     },
   });

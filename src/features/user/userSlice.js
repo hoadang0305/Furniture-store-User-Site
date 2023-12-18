@@ -20,6 +20,9 @@ export const registerUser = createAsyncThunk(
       const data = await authService.register(userData);
       return data;
     } catch (error) {
+      notification.error({
+        message: `${error.response.data.message}`,
+      });
       return thunkAPI.rejectWithValue(error);
     }
   }
@@ -117,9 +120,12 @@ export const authSlice = createSlice({
         state.isLoading = false;
         state.message = "";
         state.createdUser = action.payload;
-        if (state.createdUser !== null && state.message === "") {
+        notification.success({
+          message: "Successfully Register",
+        });
+        setTimeout(() => {
           window.location.assign("/login");
-        }
+        }, 1000);
       })
       .addCase(registerUser.rejected, (state, action) => {
         state.isLoading = false;
