@@ -30,6 +30,8 @@ export const HeaderLogo = styled(Link)`
 
 export const HeaderName = styled.div`
   margin-left: 0.5rem;
+
+  @media;
 `;
 
 export const HeaderNav = styled.div`

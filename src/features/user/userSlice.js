@@ -8,6 +8,9 @@ import {
   setRefreshToken,
 } from "../../utils/authStorage";
 import { notification } from "antd";
+import { RadiusBottomrightOutlined } from "@ant-design/icons";
+import React, { useMemo } from "react";
+import { Button, Divider, Space } from "antd";
 
 // API: Register
 export const registerUser = createAsyncThunk(
@@ -135,6 +138,13 @@ export const authSlice = createSlice({
         setAuthUser(state.user);
         setAccessToken(state.user.token);
         setRefreshToken(state.user.refreshToken);
+        notification.success({
+          message: "Hello User",
+          description: "Welcome to Future Furniture!",
+        });
+        setTimeout(() => {
+          window.location.assign("/");
+        }, 1000);
       })
       .addCase(loginUser.rejected, (state, action) => {
         state.isLoading = false;
