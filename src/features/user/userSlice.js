@@ -30,6 +30,9 @@ export const loginUser = createAsyncThunk(
       const data = await authService.login(userData);
       return data;
     } catch (error) {
+      notification.error({
+        message: `${error.response.data.message}`,
+      });
       return thunkAPI.rejectWithValue(error);
     }
   }
@@ -132,9 +135,6 @@ export const authSlice = createSlice({
         setAuthUser(state.user);
         setAccessToken(state.user.token);
         setRefreshToken(state.user.refreshToken);
-        if (state.user !== null && state.message === "") {
-          window.location.assign("/");
-        }
       })
       .addCase(loginUser.rejected, (state, action) => {
         state.isLoading = false;
