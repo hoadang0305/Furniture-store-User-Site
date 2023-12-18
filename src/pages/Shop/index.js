@@ -24,6 +24,7 @@ const Shop = () => {
   const [filter, setFilter] = useState([]);
 
   const onChange = (page) => {
+    document.documentElement.scrollTo(0, 0);
     setCurrent(page);
   };
 
