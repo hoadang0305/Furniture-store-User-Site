@@ -10,7 +10,7 @@ import {
 import { chunk } from "lodash";
 import ProductItem from "../../components/ProductItem";
 import ShopFunction from "./ShopFunction";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 const Shop = () => {
   const dispatch = useDispatch();
@@ -22,6 +22,7 @@ const Shop = () => {
   const [filter, setFilter] = useState([]);
 
   const onChange = (page) => {
+    document.documentElement.scrollTo(0, 0);
     setCurrent(page);
   };
 
