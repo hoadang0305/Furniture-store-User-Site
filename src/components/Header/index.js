@@ -55,7 +55,7 @@ const Header = () => {
     <CustomLayoutHeader>
       <HeaderLogo to="/">
         <img src="/logo_web.png" alt="logo" />
-        <HeaderName>Furniro.</HeaderName>
+        <HeaderName>Future Furniture.</HeaderName>
       </HeaderLogo>
 
       <HeaderNav>
