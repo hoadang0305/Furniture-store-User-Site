@@ -14,10 +14,15 @@ import {
   ProductDetailWrapper,
 } from "./styles";
 import ProductItem from "../../components/ProductItem";
+import { addToCart, getUserCart } from "../../features/user/userSlice";
+import { getAuthUser } from "../../utils/authStorage";
+import { notification } from "antd";
 
 const ProductDetail = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
+  const user = getAuthUser();
+  const cart = useSelector((state) => state.auth.userCart) || null;
   const product = useSelector((state) => state.product.singleProduct) || null;
   const allProducts = useSelector((state) => state.product.allProducts) || null;
   const [value, setValue] = useState(1);
@@ -25,7 +30,8 @@ const ProductDetail = () => {
   useEffect(() => {
     dispatch(getOneProduct(id));
     dispatch(getAllProducts());
-  }, [dispatch, id]);
+    dispatch(getUserCart());
+  }, [dispatch, id, cart]);
 
   const handleAddButton = () => {
     var newCur = value;
@@ -38,6 +44,27 @@ const ProductDetail = () => {
     }
     var newCur = value;
     setValue(--newCur);
+  };
+
+  const handleAddCart = () => {
+    console.log(cart);
+    if (cart.filter((item) => item.productName === product.name).length !== 0) {
+      notification.error({
+        message: "The product existed in your cart",
+      });
+    } else if (user) {
+      const newProduct = {
+        id: product.id,
+        name: product.name,
+        quantity: value,
+        price: product.price === 0 ? product.originPrice : product.price,
+      };
+      dispatch(addToCart(newProduct));
+    } else {
+      notification.error({
+        message: "Need to be login!",
+      });
+    }
   };
 
   return (
@@ -101,7 +128,7 @@ const ProductDetail = () => {
                       </Button>
                     }
                   />
-                  <Button>Add to cart</Button>
+                  <Button onClick={handleAddCart}>Add to cart</Button>
                 </div>
               </ProductDetailInfo>
             </Col>

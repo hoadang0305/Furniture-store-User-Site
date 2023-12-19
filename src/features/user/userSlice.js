@@ -8,9 +8,6 @@ import {
   setRefreshToken,
 } from "../../utils/authStorage";
 import { notification } from "antd";
-import { RadiusBottomrightOutlined } from "@ant-design/icons";
-import React, { useMemo } from "react";
-import { Button, Divider, Space } from "antd";
 
 // API: Register
 export const registerUser = createAsyncThunk(
@@ -95,6 +92,33 @@ export const getUserCart = createAsyncThunk(
     try {
       return await authService.userCart();
     } catch (error) {
+      return thunkAPI.rejectWithValue(error);
+    }
+  }
+);
+
+// API: add to cart
+export const addToCart = createAsyncThunk(
+  "product/addCart",
+  async (data, thunkAPI) => {
+    try {
+      return await authService.addCart(data);
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error);
+    }
+  }
+);
+
+// API: add to cart
+export const deleteProductCart = createAsyncThunk(
+  "product/deleteCard",
+  async (data, thunkAPI) => {
+    try {
+      return await authService.deleteCart(data);
+    } catch (error) {
+      notification.error({
+        message: "Delete not successfully!",
+      });
       return thunkAPI.rejectWithValue(error);
     }
   }
@@ -234,6 +258,40 @@ export const authSlice = createSlice({
         state.userCart = action.payload;
       })
       .addCase(getUserCart.rejected, (state, action) => {
+        state.isLoading = false;
+        state.message = action.error;
+      })
+
+      // API: add cart
+      .addCase(addToCart.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(addToCart.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.message = "";
+        notification.success({
+          message: "Add to cart successfully!",
+        });
+        state.singleCart = action.payload;
+      })
+      .addCase(addToCart.rejected, (state, action) => {
+        state.isLoading = false;
+        state.message = action.error;
+      })
+
+      // API: delete cart
+      .addCase(deleteProductCart.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(deleteProductCart.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.message = "";
+        notification.success({
+          message: "Deleted! This product has been deleted",
+        });
+        state.userCart = action.payload;
+      })
+      .addCase(deleteProductCart.rejected, (state, action) => {
         state.isLoading = false;
         state.message = action.error;
       });

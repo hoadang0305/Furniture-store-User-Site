@@ -38,6 +38,7 @@ export const getOneProduct = createAsyncThunk(
 );
 
 const initialState = {
+  singleCart: null,
   singleProduct: null,
   allProducts: null,
   funcProducts: null,
