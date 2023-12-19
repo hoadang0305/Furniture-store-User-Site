@@ -48,7 +48,10 @@ const ProductDetail = () => {
 
   const handleAddCart = () => {
     console.log(cart);
-    if (cart.filter((item) => item.productName === product.name).length !== 0) {
+    if (
+      cart !== null &&
+      cart.filter((item) => item.productName === product.name).length !== 0
+    ) {
       notification.error({
         message: "The product existed in your cart",
       });
