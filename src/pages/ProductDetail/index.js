@@ -31,7 +31,7 @@ const ProductDetail = () => {
     dispatch(getOneProduct(id));
     dispatch(getAllProducts());
     dispatch(getUserCart());
-  }, [dispatch, id, cart]);
+  }, [dispatch, id]);
 
   const handleAddButton = () => {
     var newCur = value;
@@ -47,7 +47,6 @@ const ProductDetail = () => {
   };
 
   const handleAddCart = () => {
-    console.log(cart);
     if (
       cart !== null &&
       cart.filter((item) => item.productName === product.name).length !== 0
@@ -77,7 +76,6 @@ const ProductDetail = () => {
           <Row wrap={false}>
             <Col span={12}>
               <Carousel autoplay autoplaySpeed={2000}>
-                {console.log(product.images)}
                 {product.images.map((image) => (
                   <ProductDetailImage>
                     <img
