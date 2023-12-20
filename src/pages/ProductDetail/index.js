@@ -14,7 +14,7 @@ import {
   ProductDetailWrapper,
 } from "./styles";
 import ProductItem from "../../components/ProductItem";
-import { addToCart, getUserCart } from "../../features/user/userSlice";
+import { addToCart } from "../../features/user/userSlice";
 import { getAuthUser } from "../../utils/authStorage";
 import { notification } from "antd";
 
@@ -30,7 +30,6 @@ const ProductDetail = () => {
   useEffect(() => {
     dispatch(getOneProduct(id));
     dispatch(getAllProducts());
-    dispatch(getUserCart());
   }, [dispatch, id]);
 
   const handleAddButton = () => {

@@ -1,14 +1,14 @@
 export const sessionStorage = {
   get: (key) => {
-    return window.localStorage.getItem(key);
+    return window.sessionStorage.getItem(key);
   },
   set: (key, value) => {
-    window.localStorage.setItem(key, value);
+    window.sessionStorage.setItem(key, value);
   },
   remove: (key) => {
-    window.localStorage.removeItem(key);
+    window.sessionStorage.removeItem(key);
   },
   clear: () => {
-    window.localStorage.clear();
+    window.sessionStorage.clear();
   },
 };

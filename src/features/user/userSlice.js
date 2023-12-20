@@ -125,7 +125,7 @@ export const deleteProductCart = createAsyncThunk(
 );
 
 const initialState = {
-  userCart: null,
+  userCart: [],
   message: "",
   isLoading: false,
 };
@@ -272,7 +272,7 @@ export const authSlice = createSlice({
         notification.success({
           message: "Add to cart successfully!",
         });
-        state.singleCart = action.payload;
+        state.userCart = action.payload;
       })
       .addCase(addToCart.rejected, (state, action) => {
         state.isLoading = false;
