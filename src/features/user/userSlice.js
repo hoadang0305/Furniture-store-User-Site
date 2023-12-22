@@ -118,7 +118,20 @@ export const deleteProductCart = createAsyncThunk(
     } catch (error) {
       notification.error({
         message: "Delete not successfully!",
+        duration: "1",
       });
+      return thunkAPI.rejectWithValue(error);
+    }
+  }
+);
+
+// API: delete all cart
+export const deleteAllCart = createAsyncThunk(
+  "product/deleteAllCard",
+  async (_, thunkAPI) => {
+    try {
+      return await authService.deleteCarts();
+    } catch (error) {
       return thunkAPI.rejectWithValue(error);
     }
   }
@@ -146,6 +159,7 @@ export const authSlice = createSlice({
         state.createdUser = action.payload;
         notification.success({
           message: "Successfully Register",
+          duration: "1",
         });
         setTimeout(() => {
           window.location.assign("/login");
@@ -171,6 +185,7 @@ export const authSlice = createSlice({
         notification.success({
           message: "Hello User",
           description: "Welcome to Future Furniture!",
+          duration: "1",
         });
         setTimeout(() => {
           window.location.assign("/");
@@ -256,6 +271,11 @@ export const authSlice = createSlice({
         state.isLoading = false;
         state.message = "";
         state.userCart = action.payload;
+        let result = 0;
+        for (let i = 0; i < state.userCart.length; i++) {
+          result += state.userCart[i].total;
+        }
+        state.userCart.total = result;
       })
       .addCase(getUserCart.rejected, (state, action) => {
         state.isLoading = false;
@@ -271,6 +291,7 @@ export const authSlice = createSlice({
         state.message = "";
         notification.success({
           message: "Add to cart successfully!",
+          duration: "1",
         });
         state.userCart = action.payload;
       })
@@ -288,10 +309,29 @@ export const authSlice = createSlice({
         state.message = "";
         notification.success({
           message: "Deleted! This product has been deleted",
+          duration: "1",
         });
         state.userCart = action.payload;
       })
       .addCase(deleteProductCart.rejected, (state, action) => {
+        state.isLoading = false;
+        state.message = action.error;
+      })
+
+      // API: delete all cart
+      .addCase(deleteAllCart.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(deleteAllCart.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.message = "";
+        notification.success({
+          message: "Your cart has been paid",
+          duration: "1",
+        });
+        state.userCart = action.payload;
+      })
+      .addCase(deleteAllCart.rejected, (state, action) => {
         state.isLoading = false;
         state.message = action.error;
       });

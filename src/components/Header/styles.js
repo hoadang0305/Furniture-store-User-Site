@@ -30,7 +30,7 @@ export const HeaderLogo = styled(Link)`
 
 export const HeaderName = styled.div`
   margin-left: 0.5rem;
-
+  font-size: 25px;
   @media;
 `;
 

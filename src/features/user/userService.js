@@ -120,6 +120,23 @@ const deleteCart = async (data) => {
   }
 };
 
+const deleteCarts = async (data) => {
+  const user = getAuthUser();
+  console.log(data);
+  const response = await axios.delete(
+    "http://localhost:3500/api/cart/deleteAll",
+    {
+      headers: {
+        Authorization: "Bearer " + user.token,
+      },
+      data: data,
+    }
+  );
+  if (response.data) {
+    return response.data;
+  }
+};
+
 export const authService = {
   register,
   login,
@@ -130,4 +147,5 @@ export const authService = {
   userCart,
   addCart,
   deleteCart,
+  deleteCarts,
 };

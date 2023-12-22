@@ -76,12 +76,12 @@ const Header = () => {
             <HeaderButtonIcons icon={<UserOutlined />} size="large" />
           </Link>
         </Dropdown>
-        <Link>
+        {/* <Link>
           <HeaderButtonIcons icon={<SearchOutlined />} size="large" />
         </Link>
         <Link>
           <HeaderButtonIcons icon={<HeartOutlined />} size="large" />
-        </Link>
+        </Link> */}
         <Link to="cart">
           <HeaderButtonIcons icon={<ShoppingCartOutlined />} size="large" />
         </Link>
