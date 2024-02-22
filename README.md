@@ -5,4 +5,6 @@
 
 2. Folder frontend: `npm i .` to install the packages.
 
-3. Run: `npm start`
+3. Run: `npm start` to run Seller Site in Web Application project.
+
+You can visit the Seller Site at: https://github.com/hoadang0305/Web-Application-Seller-Site
